@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+<!-- 어노테이션으로 바꾸더라도 id와 pw 값을 설정하는 XML 코드는 존재해야 함! -->
+
+<!-- 어노테이션으로 xml을 대신한다는 설정 : 패키지명 -->
+<context:component-scan base-package="anno.memberservice" />
+
+<bean id="dto1" class="anno.memberservice.MemberDTO">
+	<property name="id" value="spring" />
+	<property name="pw" value="1111" />
+</bean>
+
+<bean id="dto2" class="anno.memberservice.MemberDTO">
+	<property name="id" value="framework" />
+	<property name="pw" value="2222" />
+</bean>
+
+<bean id="dto3" class="anno.memberservice.MemberDTO">
+	<property name="id" value="java" />
+	<property name="pw" value="3333" />
+</bean>
+
+<!-- <bean id="dto1" class="memberservice.MemberDTO" >
+	<property name="id" value="spring" /> 
+	<property name="pw" value="1111" />
+	<property name="name" value="김봄" />
+	<property name="email" value="spring@1.net" />
+	<property name="phone" value="01011111111" />
+	<property name="address" value="서울" />
+	<property name="indate" value="2023-01-11" />
+</bean>
+
+<bean id="dto2" class="memberservice.MemberDTO" >
+	<property name="id" value="framework" /> 
+	<property name="pw" value="2222" />
+	<property name="name" value="김봄" />
+	<property name="email" value="spring@1.net" />
+	<property name="phone" value="01011111111" />
+	<property name="address" value="서울" />
+	<property name="indate" value="2023-01-11" />
+</bean>
+
+<bean id="dto3" class="memberservice.MemberDTO" >
+	<constructor-arg name="id" value="java" />
+	<constructor-arg name="pw" value="3333" />
+</bean>
+ -->
+
+</beans>
+

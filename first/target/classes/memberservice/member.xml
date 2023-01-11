@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--  1월달의 경우 -->
+<!-- <bean id="service" class="memberservice.MemberJanService">
+	<property name="memberDao" ref="dao"></property>
+	<property name="pointDao" ref="dao2"></property>
+</bean> -->
+
+<!-- 이외의 달 경우 -->
+<bean id="service" class="memberservice.MemberBasicService">
+	<property name="dao" ref="dao"></property>
+	<!--  name="dao" -> setDao() 메서드 호출 ("set을 제외한 메서드명"을 name값으로 입력!) -->
+</bean>
+
+<bean id="dao2" class="memberservice.PointDAO">
+	<property name="point" value="10000" />
+</bean>
+
+<bean id="dao" class="memberservice.MemberDAO" >
+	<!-- 기본값이 아닌 객체면 ref로 bean객체를 참조함 (setter) -->
+	<!-- 한개의 객체가 또 다른 객체를 has-A 관계로 포함함! : property 태그 ref 속성 사용! -->
+	<!-- <property name="dto" ref="dto1"></property> -->
+	
+	<!-- setDto()의 매개변수로 dto2를 넘겨줌 -->
+	<property name="dto" ref="dto3"></property>
+</bean>
+
+<!-- 1. Setter Injection -->
+<bean id="dto1" class="memberservice.MemberDTO" >
+	<!-- property태그는 jsp의 setProperty에 해당하는 태그임 -->
+	<property name="id" value="spring" /> 
+	<property name="pw" value="1111" />
+	<property name="name" value="김봄" />
+	<property name="email" value="spring@1.net" />
+	<property name="phone" value="01011111111" />
+	<property name="address" value="서울" />
+	<property name="indate" value="2023-01-11" />
+</bean>
+
+<bean id="dto2" class="memberservice.MemberDTO" >
+	<!-- property태그는 jsp의 setProperty에 해당하는 태그임 -->
+	<property name="id" value="framework" /> 
+	<property name="pw" value="2222" />
+	<property name="name" value="김봄" />
+	<property name="email" value="spring@1.net" />
+	<property name="phone" value="01011111111" />
+	<property name="address" value="서울" />
+	<property name="indate" value="2023-01-11" />
+</bean>
+
+<!-- 2. Constructor Injection -->
+<!-- 생성자를 통해 전달하는 객체 -->
+<bean id="dto3" class="memberservice.MemberDTO" >
+	<constructor-arg name="id" value="java" />
+	<constructor-arg name="pw" value="3333" />
+</bean>
+
+
+</beans>
+
