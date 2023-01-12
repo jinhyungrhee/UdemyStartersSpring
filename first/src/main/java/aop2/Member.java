@@ -1,0 +1,21 @@
+package aop2;
+
+import org.springframework.stereotype.Component;
+
+// target
+@Component
+public class Member {
+
+	void login(String id) {
+		System.out.println(id + " 회원님 로그인하셨습니다.");
+	}
+	
+	public void logout() {
+		System.out.println("로그아웃 하셨습니다.");
+	}
+	
+	void insert(String id, int pw) {
+		System.out.println(id + " : " + pw + " 로 회원가입하셨습니다.");
+	}
+	
+}
