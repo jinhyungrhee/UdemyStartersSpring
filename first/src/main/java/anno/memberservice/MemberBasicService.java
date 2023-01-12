@@ -3,17 +3,12 @@ package anno.memberservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("janservice")
+@Service("service2") // default : memberBasicService
 public class MemberBasicService implements MemberService {
 
 	@Autowired
 	MemberDAO dao;
-	
-	// ioc를 위한 setter method
-	public void setDao(MemberDAO dao) {
-		this.dao = dao;
-	}
-	
+
 	@Override
 	public void registerMember() {
 		

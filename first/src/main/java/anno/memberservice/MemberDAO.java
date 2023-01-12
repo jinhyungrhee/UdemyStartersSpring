@@ -4,21 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-@Repository("dao")
+@Repository("memberdao")
 public class MemberDAO {
 	
-	@Autowired
-	@Qualifier("dto1")
+	@Autowired // dto1, dto2, dto3
+	@Qualifier("dto2") // 세 개중에 하나 명시 필요
 	MemberDTO dto;
-	
-	/* <property name="dto" ref="dto정의 bean id"> */
-	public void setDto(MemberDTO dto) { 
-		// dto1, dto2, dto3 + 하위클래스 객체(ioc, dependency injection)
-		// ioc 구현을 위해 스프링은 dependency injection 방법을 사용함
-		// 1> setter injection
-		// 2> constructor injection
-		this.dto = dto; // dto를 전달하는 메서드
-	}
 	
 	public boolean selectMember() {
 		// MemberDTO - id가 spring이고 pw가 1111이면 '정상 로그인'

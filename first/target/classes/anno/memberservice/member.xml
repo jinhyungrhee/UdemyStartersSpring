@@ -11,6 +11,14 @@
 <!-- 어노테이션으로 xml을 대신한다는 설정 : 패키지명 -->
 <context:component-scan base-package="anno.memberservice" />
 
+<!-- <bean id="pointdao" class="anno.memberservice.PointDAO">
+	<property name="point" value="10000" />
+</bean>
+ -->
+<bean id="dao2" class="anno.memberservice.PointDAO">
+	<property name="point" value="10000" />
+</bean>
+
 <bean id="dto1" class="anno.memberservice.MemberDTO">
 	<property name="id" value="spring" />
 	<property name="pw" value="1111" />

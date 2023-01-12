@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service("jan")
+@Service("service")
 public class MemberJanService implements MemberService {
 
 	// DAO 두 개 필요
+	@Autowired
 	MemberDAO memberDao;
+	
+	@Autowired
 	PointDAO pointDao;
 	
 	
@@ -23,18 +26,7 @@ public class MemberJanService implements MemberService {
 		}
 		
 	}
-	
-	
-	// setter메서드만 생성
-	public void setMemberDao(MemberDAO memberDao) {
-		this.memberDao = memberDao;
-	}
 
-
-
-	public void setPointDao(PointDAO pointDao) {
-		this.pointDao = pointDao;
-	}
 
 
 

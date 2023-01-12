@@ -2,7 +2,6 @@ package anno.memberservice;
 
 import org.springframework.stereotype.Component;
 
-@Component("dto")
 public class MemberDTO {
 
 	String id, pw, name, email, phone, address, indate;

@@ -14,12 +14,16 @@ public class MemberMain {
 		//dao.setDto(dto3);
 		
 		ApplicationContext factory = new ClassPathXmlApplicationContext("anno/memberservice/member.xml");
+		
+		MemberService service = factory.getBean("service2", MemberBasicService.class); // dao안에서 dto 저장
 		//MemberService service = factory.getBean("service", MemberJanService.class); // dao안에서 dto 저장
-//		MemberService service = factory.getBean("service", MemberBasicService.class); // dao안에서 dto 저장
-		MemberService service = factory.getBean("service", MemberBasicService.class); // dao안에서 dto 저장
+		
+		// 인터페이스 타입으로 사용해도됨!
+				//MemberService service = factory.getBean("service", MemberService.class); // dao안에서 dto 저장
+		
 		service.registerMember();
 		
-		// 생성된 Bean 이름들 출력
+		// 생성된 객체(Bean) 이름들 출력
 //		System.out.println("=======================================================");
 //		String[] beanNames = factory.getBeanDefinitionNames();
 //		for (String name : beanNames) {

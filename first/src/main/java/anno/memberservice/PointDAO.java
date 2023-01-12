@@ -2,7 +2,8 @@ package anno.memberservice;
 
 import org.springframework.stereotype.Repository;
 
-@Repository("pdao")
+/*@Repository("pointdao")*/
+@Repository("dao2")
 public class PointDAO {
 	
 	int point;
