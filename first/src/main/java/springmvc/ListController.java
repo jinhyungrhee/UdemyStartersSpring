@@ -12,7 +12,7 @@ public class ListController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
 		ListDTO dto = new ListDTO(new ArrayList<String>());
 		dto.setList("홍길동");
 		dto.setList("김영희");
