@@ -124,6 +124,7 @@
 	  <version>2.2.2</version>
 	</dependency> -->
 	
+	<!-- AOP -->
 	<!-- aspecjweaver -->
 	<dependency>
 	    <groupId>org.aspectj</groupId>
@@ -131,6 +132,21 @@
 	    <version>1.9.9.1</version>
 	    <scope>runtime</scope>
 	</dependency>
+	
+	<!-- mybatis + spring mvc 연동하기 위한 라이브러리 -->
+	<dependency>			
+		<groupId>org.mariadb.jdbc</groupId>			
+		<artifactId>mariadb-java-client</artifactId>			
+		<version>3.1.0</version>		
+	</dependency>
+	
+	<dependency>    
+		<groupId>org.mybatis</groupId>    
+		<artifactId>mybatis</artifactId>    
+		<version>3.5.6</version>
+	</dependency>
+	
+	<!-- spring mvc 연동하기 위한 라이브러리(Todo) -->
 	   
 	</dependencies>
     <build>
