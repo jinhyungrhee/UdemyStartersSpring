@@ -22,7 +22,8 @@
 	</beans:bean>
 	
 	<!-- <context:component-scan base-package="a.b.spring" /> -->
-	<context:component-scan base-package="annotation.springmvc" />
+	<!-- <context:component-scan base-package="annotation.springmvc" /> -->
+	<context:component-scan base-package="spring.mybatis" />
 	
 	<!-- Mapping 하나씩만 늘려주면 됨! -->
 	<!-- spring mvc 환경에서는 <beans:bean 으로 사용 -->
