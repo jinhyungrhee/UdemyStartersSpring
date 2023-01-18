@@ -13,7 +13,8 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" /> <!-- 브라우저에서 바로 불러냄 (서버 거쳐갈 필요) -->
+	<!-- controller를 거치지 않아도 바로 보여줄 수 있는 경로 : resources -->
+	<resources mapping="/resources/**" location="/resources/" /> <!-- 브라우저에서 바로 불러냄 (서버 거쳐갈 필요) -->	
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -24,6 +25,8 @@
 	<!-- <context:component-scan base-package="a.b.spring" /> -->
 	<!-- <context:component-scan base-package="annotation.springmvc" /> -->
 	<context:component-scan base-package="spring.mybatis" />
+	<context:component-scan base-package="upload" />
+	<context:component-scan base-package="ajax" />
 	
 	<!-- Mapping 하나씩만 늘려주면 됨! -->
 	<!-- spring mvc 환경에서는 <beans:bean 으로 사용 -->
@@ -42,5 +45,12 @@
 			</beans:props>
 		</beans:property>
 	</beans:bean>-->
-
+	
+	<!-- File Upload -->
+	<!-- 1. 서버 파일 저장 경로 - c:\upload 폴더. 클라이언트 URL 표시 브라우저 (다운로드시 필요) -->
+	<!-- 2. Multipart 관련 설정(=객체 매핑) - viewResolver 설정과 유사-->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	<!-- 3. upload패키지-xxxx -->
+	<!-- <context:component-scan base-package="upload" /> 위에 모아서 등록 -->
+	
 </beans:beans>
