@@ -95,6 +95,34 @@ $(document).ready(function() {
 		}); // ajax	
 	}); //ajaxbtn4 on
 	
+	$("#uploadajaxbtn").on('click', function() {
+		
+		var form = $("#uploadform")[0];
+		var formdata = new FormData(form);
+		
+		
+		$.ajax({
+			url : 'uploadajax',
+			type : 'post',
+			data : formdata,
+			enctype : "multipart/form-data",
+			processData : false, // name=value&...
+			contentType : false,
+			///////////////////////////////////////
+			dataType : 'json',
+			success : function(data) {
+				$("#ajaxresult").html("<h1>" + data.result + "</h1>");
+				
+			},
+			error : function(request, status, error) {
+				alert("code:"+request.status+"\n"
+						+"message:"+request.responseText+"\n"
+						+"error:"+error);
+			} 
+		}); // ajax
+		
+	}); // uploadajaxbtn
+	
 }); // ready
 
 </script>
@@ -114,6 +142,13 @@ $(document).ready(function() {
 
 페이지번호입력:<input type=NUMBER id="page">
 <input type="button" id="ajaxbtn4" value="페이징리스트주세요"><br>
+
+=============================================================
+<form id="uploadform">
+업로드파일<input type=file name="uploadfile" >
+<input type=button id="uploadajaxbtn" value="파일업로드(ajax)">
+</form>
+
 
 <div id="ajaxresult"></div>
 
